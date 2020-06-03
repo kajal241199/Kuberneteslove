@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: kajalpod2
+  name: kajalpod2
+spec:
+  containers:
+  - image: 6367400/dockk8s:v1
+    name: kajalpod2
+    env:
+    - name: x
+      valueFrom:
+       configMapKeyRef:
+        name: kajalcm2
+        key: app
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
